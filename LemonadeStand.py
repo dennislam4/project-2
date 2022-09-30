@@ -111,27 +111,3 @@ class LemonadeStand:
         return profit_on_all_items
 
 
-def main():
-    stand = LemonadeStand('Lemons R Us')  # Create a new LemonadeStand callled 'Lemons R Us'
-    item1 = MenuItem('lemonade', 0.5,
-                     1.5)  # Create lemonade as a menu item (wholesale cost 50 cents, selling price $1.50)
-    stand.add_menu_item(item1)  # Add lemonade to the menu for 'Lemons R Us'
-    item2 = MenuItem('nori', 0.6, 0.8)  # Create nori as a menu item (wholesale cost 60 cents, selling price 80 cents)
-    stand.add_menu_item(item2)  # Add nori to the menu for 'Lemons R Us'
-    item3 = MenuItem('cookie', 0.2, 1)  # Create cookie as a menu item (wholesale cost 20 cents, selling price $1.00)
-    stand.add_menu_item(item3)  # Add cookie to the menu for 'Lemons R Us'
-
-    # print(stand._menu_items)
-
-    # This dictionary records that on day zero, 5 lemonades were sold, 2 cookies were sold, and no nori was sold
-    day_0_sales = {
-        'lemonade': 5,
-        'cookie': 2
-    }
-
-    stand.enter_sales_for_today(day_0_sales)  # Record the sales for day zero
-    print(stand.total_profit_for_menu_item("lemonade"))
-
-
-if __name__ == "__main__":
-    main()
