@@ -7,6 +7,7 @@ class MenuItem:
     """
     Represents the items that are being sold at the lemonade stand.
     """
+
     def __init__(self, name, wholesale_cost, selling_price):
         """Initializes menu item names, wholesale cost, and selling price at the lemonade stand."""
         self._name = name
@@ -25,10 +26,12 @@ class MenuItem:
         """Get method for menu items' selling price."""
         return self._selling_price
 
+
 class SalesForDay:
     """
     Represents the sales generated at the lemonade stand for a day.
     """
+
     def __init__(self, day, sales_dict):
         """Initializes the day and sales dictionary."""
         self._day = day
@@ -42,11 +45,13 @@ class SalesForDay:
         """Get method that shows the items being sold and their values."""
         return self._sales_dict
 
+
 class LemonadeStand:
     """
     Represents a lemond stand displaying the store title, the current day, menu items for sale for the day alongside
     their sales.
     """
+
     def __init__(self, name):
         """Initializes lemonade stand name."""
         self._name = name
@@ -78,21 +83,21 @@ class LemonadeStand:
         sales_dict = items_sold_on_day.get_sales_dict()
         return sales_dict[item_name]
 
-    def total_sales_for_menu_item(self, day, item_name):
+    def total_sales_for_menu_item(self, item_name):
         """
         Returns the total number of times an item has been sold for the entirity of however long the lemonade stand has
         been open.
         """
         total_number_of_item_sold = 0
-        for days in range(self._current_day):
+        for day in range(self._current_day):
             total_number_of_item_sold += self.sales_of_menu_item_for_day(day, item_name)
         return total_number_of_item_sold
 
-    def total_profit_for_menu_item(self, day, item_name):
+    def total_profit_for_menu_item(self, item_name):
         """
         Returns the total profit of menu item sold for the entirity of however long the lemonade stand has been open.
         """
-        total_item_sales = self.total_sales_for_menu_item(day, item_name)
+        total_item_sales = self.total_sales_for_menu_item(item_name)
         menu_item = self._menu_items[item_name]
         return total_item_sales * (menu_item.get_selling_price() - menu_item.get_wholesale_cost())
 
@@ -101,7 +106,10 @@ class LemonadeStand:
         Returns the total profit on all items sold over the entirity of however long the lemonade stand has been open.
         """
         profit_on_all_items = 0
-        for
+        for item_name in self._menu_items:
+            profit_on_all_items += self.total_profit_for_menu_item(item_name)
+        return profit_on_all_items
+
 
 def main():
     stand = LemonadeStand('Lemons R Us')  # Create a new LemonadeStand callled 'Lemons R Us'
@@ -113,15 +121,17 @@ def main():
     item3 = MenuItem('cookie', 0.2, 1)  # Create cookie as a menu item (wholesale cost 20 cents, selling price $1.00)
     stand.add_menu_item(item3)  # Add cookie to the menu for 'Lemons R Us'
 
-    #print(stand._menu_items)
+    # print(stand._menu_items)
 
     # This dictionary records that on day zero, 5 lemonades were sold, 2 cookies were sold, and no nori was sold
     day_0_sales = {
-        'lemonade' : 5,
-        'cookie'   : 2
+        'lemonade': 5,
+        'cookie': 2
     }
 
     stand.enter_sales_for_today(day_0_sales)  # Record the sales for day zero
-    print(stand.total_profit_for_menu_item(0, "lemonade"))
+    print(stand.total_profit_for_menu_item("lemonade"))
+
+
 if __name__ == "__main__":
     main()
