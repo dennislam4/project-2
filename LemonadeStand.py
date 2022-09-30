@@ -1,7 +1,12 @@
 # Author: Dennis Lam
 # GitHub username: dennislam4
 # Date: 09-22-2022
-# Description: Code that contains three classes of menu items, daily sales, and a lemonade stand.
+# Description: Program that represents a lemonade stand with menu items alongside their wholesale cost and selling
+# price that contains three classes of menu items, daily sales, and a lemonade stand.
+
+class InvalidSalesItem(Exception):
+    pass
+
 
 class MenuItem:
     """
@@ -111,3 +116,19 @@ class LemonadeStand:
         return profit_on_all_items
 
 
+def main():
+    """
+    Main function that contains LemonadeStand object, 3 menu item objects, and calls the enter_sales_for_today()
+    function.
+    """
+    stand = LemonadeStand("Da' Last Stand")
+    item1 = MenuItem("Lemonade", 0.15, 1.00)
+    stand.add_menu_item(item1)
+    item2 = MenuItem("Limeade", 0.25, 1.25)
+    stand.add_menu_item(item2)
+    item3 = MenuItem("Orangeade", 0.30, 1.50)
+    stand.add_menu_item(item3)
+
+
+if __name__ == '__main__':
+    main()
