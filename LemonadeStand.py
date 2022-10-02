@@ -76,7 +76,7 @@ class LemonadeStand:
     def enter_sales_for_today(self, sales_dict):
         """
         Uses dictionary where keys are the menu items being sold and the values are the number of those items sold at
-        the lemonade stand for the day.
+        the lemonade stand for the day. Records the sales of items for the day and adds a day to the current date.
         """
         sales_for_today = SalesForDay(self._current_day, sales_dict)
         self._sales_for_day.append(sales_for_today)
@@ -128,6 +128,15 @@ def main():
     stand.add_menu_item(item2)
     item3 = MenuItem("Orangeade", 0.30, 1.50)
     stand.add_menu_item(item3)
+    dict_of_sales_day_0 = {
+        "Lemonade": 49,
+        "Limeade": 24,
+        "Orangeade": 12,
+        "Diet Cola": 1,
+    }
+
+    stand.enter_sales_for_today(dict_of_sales_day_0)
+    print(f"The total profit for the Limeade today was ${stand.total_profit_for_menu_item('Limeade')}")
 
 
 if __name__ == '__main__':
