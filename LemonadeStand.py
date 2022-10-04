@@ -137,7 +137,6 @@ def main():
         "Orangeade": 12,
         "Diet Cola": 1,
     }
-
     stand.enter_sales_for_today(dict_of_sales_day_0)
     print(f"Total profit for the Limeade today was ${stand.total_profit_for_menu_item('Limeade')}")
 
