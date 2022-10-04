@@ -80,7 +80,7 @@ class LemonadeStand:
         """
         for item in sales_dict:
             if item not in sales_dict:
-                raise InvalidSalesItem("The item was not found in the menu.")
+                raise InvalidSalesItemError("The item was not found in the menu.")
         sales_for_today = SalesForDay(self._current_day, sales_dict)
         self._sales_for_day.append(sales_for_today)
         self._current_day += 1
