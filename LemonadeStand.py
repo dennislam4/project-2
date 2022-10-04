@@ -134,7 +134,7 @@ def main():
     dict_of_sales_day_0 = {
         "Lemonade": 49,
         "Limeade": 24,
-        "Orangeade": 12,
+        "Orangeade": 0,
         "Diet Cola": 1,
     }
     stand.enter_sales_for_today(dict_of_sales_day_0)
