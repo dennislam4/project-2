@@ -4,7 +4,7 @@
 # Description: Program that represents a lemonade stand with menu items alongside their wholesale cost and selling
 # price that contains three classes of menu items, daily sales, and a lemonade stand.
 
-class InvalidSalesItem(Exception):
+class InvalidSalesItemError(Exception):
     pass
 
 
