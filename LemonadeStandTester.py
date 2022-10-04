@@ -18,7 +18,7 @@ class TestMenuItem(unittest.TestCase):
 
     def test_2(self):
         """Testing get_wholesale_cost"""
-        item_2 = MenuItem("Lemonade", 0.15, 1.00)
+        item_1 = MenuItem("Lemonade", 0.15, 1.00)
         self.assertAlmostEqual(item_1.get_wholesale_cost(), 0.15)
 
     def test_3(self):
